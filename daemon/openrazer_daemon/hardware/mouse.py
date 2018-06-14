@@ -880,12 +880,12 @@ class RazerNagaEpic(__RazerDevice):
                'get_scroll_effect', 'get_scroll_brightness', 'set_scroll_brightness', 'set_scroll_static', 'set_scroll_spectrum',
                'get_battery', 'is_charging', 'set_idle_time', 'set_low_battery_threshold']
 
-    #RAZER_URLS = {
-        #"store": None,
-        #"top_img": "https://assets.razerzone.com/eeimages/products/12/razer-naga-hex-gallery-12.png",
-        #"side_img": "https://assets.razerzone.com/eeimages/products/12/razer-naga-hex-gallery-11.png",
-        #"perspective_img": "https://assets.razerzone.com/eeimages/products/12/razer-naga-hex-gallery-7.png"
-    #}
+    # RAZER_URLS = {
+    # "store": None,
+    # "top_img": "https://assets.razerzone.com/eeimages/products/12/razer-naga-hex-gallery-12.png",
+    # "side_img": "https://assets.razerzone.com/eeimages/products/12/razer-naga-hex-gallery-11.png",
+    # "perspective_img": "https://assets.razerzone.com/eeimages/products/12/razer-naga-hex-gallery-7.png"
+    # }
 
     DPI_MAX = 5600
 
