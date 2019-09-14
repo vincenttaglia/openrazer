@@ -579,7 +579,7 @@ class RazerNagaTrinity(__RazerDeviceSpecialBrightnessSuspend):
     DEDICATED_MACRO_KEYS = True
     MATRIX_DIMS = [1, 3]
     METHODS = ['get_device_type_mouse', 'get_dpi_xy', 'set_dpi_xy', 'get_poll_rate', 'set_poll_rate',
-               'get_brightness', 'set_brightness', 'set_static_effect']
+               'get_brightness', 'set_brightness', 'set_static_effect', 'max_dpi']
 
     DEVICE_IMAGE = "https://assets.razerzone.com/eeimages/support/products/636/636_naga_chroma.png"
 
