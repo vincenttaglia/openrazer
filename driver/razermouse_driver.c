@@ -437,248 +437,248 @@ static ssize_t razer_attr_write_mode_static(struct device *dev, struct device_at
         case USB_DEVICE_ID_RAZER_NAGA_HEX_V2:
             report = razer_chroma_mouse_extended_matrix_effect_static(VARSTORE, BACKLIGHT_LED, (struct razer_rgb*)&buf[0]);
             break;
-	
+
         case USB_DEVICE_ID_RAZER_NAGA_CHROMA:
             report = razer_chroma_mouse_extended_matrix_effect_static(VARSTORE, BACKLIGHT_LED, (struct razer_rgb*)&buf[0]);
             report.transaction_id.id = 0xff;
             break;
             
         case USB_DEVICE_ID_RAZER_NAGA_TRINITY:
-			;
-			
-			// 1st packet
-			struct razer_report mode_report = get_razer_report(0x00, 0x86, 0x02);
-			mode_report.arguments[0] = 0x00;
-			mode_report.arguments[1] = 0x00;
-			mode_report.transaction_id.id = 0x08;
-			
-			razer_send_payload(usb_dev, &mode_report);
-			
-			// 2nd packet			
-			mode_report = get_razer_report(0x00, 0x86, 0x03);
-			mode_report.arguments[0] = 0x00;
-			mode_report.arguments[1] = 0x00;
-			mode_report.arguments[2] = 0x00;
-			mode_report.transaction_id.id = 0x0c;
-			
-			razer_send_payload(usb_dev, &mode_report);
-			
-			// 3rd packet
-			mode_report = get_razer_report(0x00, 0x86, 0x02);
-			mode_report.arguments[0] = 0x00;
-			mode_report.arguments[1] = 0x00;
-			mode_report.transaction_id.id = 0x08;
-			
-			razer_send_payload(usb_dev, &mode_report);
-			
-			// 4th packet
-			// (2nd packet again)
-			
-			// 5th packet
-			mode_report = get_razer_report(0x00, 0x82, 0x016);
-			int i;
-			for(i=0; i<22; i++){
-				mode_report.arguments[i] = 0x00;
-			}
-			mode_report.transaction_id.id = 0x08;
-			
-			razer_send_payload(usb_dev, &mode_report);
-			
-			// 6th packet
-			mode_report = get_razer_report(0x00, 0xb9, 0x01);
-			mode_report.arguments[0] = 0x00;
-			mode_report.transaction_id.id = 0x1f;
-			
-			razer_send_payload(usb_dev, &mode_report);
-			
-			// 7th packet
-			mode_report = get_razer_report(0x00, 0x86, 0x02);
-			mode_report.arguments[0] = 0x00;
-			mode_report.arguments[1] = 0x00;
-			mode_report.transaction_id.id = 0x1f;
-			
-			razer_send_payload(usb_dev, &mode_report);
-			
-			// 8th packet
-			mode_report = get_razer_report(0x00, 0x87, 0x04);
-			mode_report.arguments[0] = 0x00;
-			mode_report.arguments[1] = 0x00;
-			mode_report.arguments[2] = 0x00;
-			mode_report.arguments[3] = 0x00;
-			mode_report.transaction_id.id = 0x1f;
-			
-			razer_send_payload(usb_dev, &mode_report);
-			
-			// 9th packet
-			// (6th packet again)
-			
-			// 10th packet
-			// (7th packet again)
-			
-			// 11th packet
-			// (6th packet again)
-			
-			// 12th packet
-			// (7th packet again)
-			/*	.
-				.
-				.  */
-			// 25th packet
-			// (6th packet again)
-			
-			// 26th packet
-			// (7th packet again)
-			
-			// 27th packet
-			// (7th packet again)
-			
-			// 28th packet
-			mode_report = get_razer_report(0x05, 0x8a, 0x01);
-			mode_report.arguments[0] = 0x00;
-			mode_report.transaction_id.id = 0x1f;
-			
-			razer_send_payload(usb_dev, &mode_report);
-			
-			// 29th packet
-			mode_report = get_razer_report(0x05, 0x80, 0x01);
-			mode_report.arguments[0] = 0x00;
-			mode_report.transaction_id.id = 0x1f;
-			
-			razer_send_payload(usb_dev, &mode_report);
-			
-			// 30th packet
-			mode_report = get_razer_report(0x05, 0x81, 0x41);
-			for(i=0; i<0x41; i++){
-				mode_report.arguments[i] = 0x00;
-			}
-			mode_report.transaction_id.id = 0x1f;
-			
-			razer_send_payload(usb_dev, &mode_report);
-			
-			// 31st packet
-			mode_report = get_razer_report(0x06, 0x8e, 0x0e);
-			for(i=0; i<14; i++){
-				mode_report.arguments[i] = 0x00;
-			}
-			mode_report.transaction_id.id = 0x1f;
-			
-			razer_send_payload(usb_dev, &mode_report);
-			
-			// 32nd packet
-			mode_report = get_razer_report(0x00, 0x86, 0x02);
-			mode_report.arguments[0] = 0x00;
-			mode_report.arguments[1] = 0x00;
-			mode_report.transaction_id.id = 0x1f;
-			
-			razer_send_payload(usb_dev, &mode_report);
-			
-			// 33rd packet
-			mode_report = get_razer_report(0x05, 0x8a, 0x01);
-			mode_report.arguments[0] = 0x00;
-			mode_report.transaction_id.id = 0x1f;
-			
-			razer_send_payload(usb_dev, &mode_report);
-			
-			// 34th packet
-			mode_report = get_razer_report(0x05, 0x80, 0x01);
-			mode_report.arguments[0] = 0x00;
-			mode_report.transaction_id.id = 0x1f;
-			
-			razer_send_payload(usb_dev, &mode_report);
-			
-			// 35th packet
-			mode_report = get_razer_report(0x05, 0x81, 0x41);
-			for(i=0; i<0x41; i++){
-				mode_report.arguments[i] = 0x00;
-			}
-			mode_report.transaction_id.id = 0x1f;
-			
-			razer_send_payload(usb_dev, &mode_report);
-			
-			// 36th packet
-			mode_report = get_razer_report(0x06, 0x80, 0x02);
-			mode_report.arguments[0] = 0x00;
-			mode_report.arguments[1] = 0x00;
-			mode_report.transaction_id.id = 0x1f;
-			
-			razer_send_payload(usb_dev, &mode_report);
-			
-			// 37th packet
-			// (6th packet again)
-			
-			// 38th packet
-			// (7th packet again)
-			
-			// 39th packet
-			mode_report = get_razer_report(0x00, 0x84, 0x02);
-			mode_report.arguments[0] = 0x00;
-			mode_report.arguments[1] = 0x00;
-			mode_report.transaction_id.id = 0x1f;
-			
-			razer_send_payload(usb_dev, &mode_report);
-			
-			// 40th packet
-			mode_report = get_razer_report(0x0f, 0x02, 0x06);
-			mode_report.arguments[0] = 0x00;
-			mode_report.arguments[1] = 0x00;
-			mode_report.arguments[2] = 0x08;
-			mode_report.arguments[3] = 0x00;
-			mode_report.arguments[4] = 0x00;
-			mode_report.arguments[5] = 0x00;
-			mode_report.transaction_id.id = 0x1f;
-			
-			razer_send_payload(usb_dev, &mode_report);
-			
-			// 41st packet
-			// FINALLY a color changing packet. It is for RGB 000000 though.
-			mode_report = get_razer_report(0x0f, 0x03, 0x0e);
-			mode_report.arguments[0] = 0x00;
-			mode_report.arguments[1] = 0x00;
-			mode_report.arguments[2] = 0x00;
-			mode_report.arguments[3] = 0x00;
-			mode_report.arguments[4] = 0x02;
-			mode_report.arguments[5] = 0x00;
-			mode_report.arguments[6] = 0x00;
-			mode_report.arguments[7] = 0x00;
-			mode_report.arguments[8] = 0x00;
-			mode_report.arguments[9] = 0x00;
-			mode_report.arguments[10] = 0x00;
-			mode_report.arguments[11] = 0x00;
-			mode_report.arguments[12] = 0x00;
-			mode_report.arguments[13] = 0x00;
-			mode_report.transaction_id.id = 0x1f;
-			
-			razer_send_payload(usb_dev, &mode_report);
-			
-			// 42nd packet
-			// (40th packet again)
-			
-			// 43rd packet
-			mode_report = get_razer_report(0x0b, 0x03, 0x03);
-			mode_report.arguments[0] = 0x00;
-			mode_report.arguments[1] = 0x00;
-			mode_report.arguments[2] = 0x08;
-			mode_report.transaction_id.id = 0x1f;
-			
-			razer_send_payload(usb_dev, &mode_report);
-			
-			struct razer_rgb *rgb = (struct razer_rgb*)&buf[0];
-			report = get_razer_report(0x0f, 0x03, 0x0e);
+            ;
+            
+            // 1st packet
+            struct razer_report mode_report = get_razer_report(0x00, 0x86, 0x02);
+            mode_report.arguments[0] = 0x00;
+            mode_report.arguments[1] = 0x00;
+            mode_report.transaction_id.id = 0x08;
+            
+            razer_send_payload(usb_dev, &mode_report);
+            
+            // 2nd packet            
+            mode_report = get_razer_report(0x00, 0x86, 0x03);
+            mode_report.arguments[0] = 0x00;
+            mode_report.arguments[1] = 0x00;
+            mode_report.arguments[2] = 0x00;
+            mode_report.transaction_id.id = 0x0c;
+            
+            razer_send_payload(usb_dev, &mode_report);
+            
+            // 3rd packet
+            mode_report = get_razer_report(0x00, 0x86, 0x02);
+            mode_report.arguments[0] = 0x00;
+            mode_report.arguments[1] = 0x00;
+            mode_report.transaction_id.id = 0x08;
+            
+            razer_send_payload(usb_dev, &mode_report);
+            
+            // 4th packet
+            // (2nd packet again)
+            
+            // 5th packet
+            mode_report = get_razer_report(0x00, 0x82, 0x016);
+            int i;
+            for(i=0; i<22; i++){
+            	mode_report.arguments[i] = 0x00;
+            }
+            mode_report.transaction_id.id = 0x08;
+            
+            razer_send_payload(usb_dev, &mode_report);
+            
+            // 6th packet
+            mode_report = get_razer_report(0x00, 0xb9, 0x01);
+            mode_report.arguments[0] = 0x00;
+            mode_report.transaction_id.id = 0x1f;
+            
+            razer_send_payload(usb_dev, &mode_report);
+            
+            // 7th packet
+            mode_report = get_razer_report(0x00, 0x86, 0x02);
+            mode_report.arguments[0] = 0x00;
+            mode_report.arguments[1] = 0x00;
+            mode_report.transaction_id.id = 0x1f;
+            
+            razer_send_payload(usb_dev, &mode_report);
+            
+            // 8th packet
+            mode_report = get_razer_report(0x00, 0x87, 0x04);
+            mode_report.arguments[0] = 0x00;
+            mode_report.arguments[1] = 0x00;
+            mode_report.arguments[2] = 0x00;
+            mode_report.arguments[3] = 0x00;
+            mode_report.transaction_id.id = 0x1f;
+            
+            razer_send_payload(usb_dev, &mode_report);
+            
+            // 9th packet
+            // (6th packet again)
+            
+            // 10th packet
+            // (7th packet again)
+            
+            // 11th packet
+            // (6th packet again)
+            
+            // 12th packet
+            // (7th packet again)
+            /*	.
+            	.
+            	.  */
+            // 25th packet
+            // (6th packet again)
+            
+            // 26th packet
+            // (7th packet again)
+            
+            // 27th packet
+            // (7th packet again)
+            
+            // 28th packet
+            mode_report = get_razer_report(0x05, 0x8a, 0x01);
+            mode_report.arguments[0] = 0x00;
+            mode_report.transaction_id.id = 0x1f;
+            
+            razer_send_payload(usb_dev, &mode_report);
+            
+            // 29th packet
+            mode_report = get_razer_report(0x05, 0x80, 0x01);
+            mode_report.arguments[0] = 0x00;
+            mode_report.transaction_id.id = 0x1f;
+            
+            razer_send_payload(usb_dev, &mode_report);
+            
+            // 30th packet
+            mode_report = get_razer_report(0x05, 0x81, 0x41);
+            for(i=0; i<0x41; i++){
+            	mode_report.arguments[i] = 0x00;
+            }
+            mode_report.transaction_id.id = 0x1f;
+            
+            razer_send_payload(usb_dev, &mode_report);
+            
+            // 31st packet
+            mode_report = get_razer_report(0x06, 0x8e, 0x0e);
+            for(i=0; i<14; i++){
+            	mode_report.arguments[i] = 0x00;
+            }
+            mode_report.transaction_id.id = 0x1f;
+            
+            razer_send_payload(usb_dev, &mode_report);
+            
+            // 32nd packet
+            mode_report = get_razer_report(0x00, 0x86, 0x02);
+            mode_report.arguments[0] = 0x00;
+            mode_report.arguments[1] = 0x00;
+            mode_report.transaction_id.id = 0x1f;
+            
+            razer_send_payload(usb_dev, &mode_report);
+            
+            // 33rd packet
+            mode_report = get_razer_report(0x05, 0x8a, 0x01);
+            mode_report.arguments[0] = 0x00;
+            mode_report.transaction_id.id = 0x1f;
+            
+            razer_send_payload(usb_dev, &mode_report);
+            
+            // 34th packet
+            mode_report = get_razer_report(0x05, 0x80, 0x01);
+            mode_report.arguments[0] = 0x00;
+            mode_report.transaction_id.id = 0x1f;
+            
+            razer_send_payload(usb_dev, &mode_report);
+            
+            // 35th packet
+            mode_report = get_razer_report(0x05, 0x81, 0x41);
+            for(i=0; i<0x41; i++){
+            	mode_report.arguments[i] = 0x00;
+            }
+            mode_report.transaction_id.id = 0x1f;
+            
+            razer_send_payload(usb_dev, &mode_report);
+            
+            // 36th packet
+            mode_report = get_razer_report(0x06, 0x80, 0x02);
+            mode_report.arguments[0] = 0x00;
+            mode_report.arguments[1] = 0x00;
+            mode_report.transaction_id.id = 0x1f;
+            
+            razer_send_payload(usb_dev, &mode_report);
+            
+            // 37th packet
+            // (6th packet again)
+            
+            // 38th packet
+            // (7th packet again)
+            
+            // 39th packet
+            mode_report = get_razer_report(0x00, 0x84, 0x02);
+            mode_report.arguments[0] = 0x00;
+            mode_report.arguments[1] = 0x00;
+            mode_report.transaction_id.id = 0x1f;
+            
+            razer_send_payload(usb_dev, &mode_report);
+            
+            // 40th packet
+            mode_report = get_razer_report(0x0f, 0x02, 0x06);
+            mode_report.arguments[0] = 0x00;
+            mode_report.arguments[1] = 0x00;
+            mode_report.arguments[2] = 0x08;
+            mode_report.arguments[3] = 0x00;
+            mode_report.arguments[4] = 0x00;
+            mode_report.arguments[5] = 0x00;
+            mode_report.transaction_id.id = 0x1f;
+            
+            razer_send_payload(usb_dev, &mode_report);
+            
+            // 41st packet
+            // FINALLY a color changing packet. It is for RGB 000000 though.
+            mode_report = get_razer_report(0x0f, 0x03, 0x0e);
+            mode_report.arguments[0] = 0x00;
+            mode_report.arguments[1] = 0x00;
+            mode_report.arguments[2] = 0x00;
+            mode_report.arguments[3] = 0x00;
+            mode_report.arguments[4] = 0x02;
+            mode_report.arguments[5] = 0x00;
+            mode_report.arguments[6] = 0x00;
+            mode_report.arguments[7] = 0x00;
+            mode_report.arguments[8] = 0x00;
+            mode_report.arguments[9] = 0x00;
+            mode_report.arguments[10] = 0x00;
+            mode_report.arguments[11] = 0x00;
+            mode_report.arguments[12] = 0x00;
+            mode_report.arguments[13] = 0x00;
+            mode_report.transaction_id.id = 0x1f;
+            
+            razer_send_payload(usb_dev, &mode_report);
+            
+            // 42nd packet
+            // (40th packet again)
+            
+            // 43rd packet
+            mode_report = get_razer_report(0x0b, 0x03, 0x03);
+            mode_report.arguments[0] = 0x00;
+            mode_report.arguments[1] = 0x00;
+            mode_report.arguments[2] = 0x08;
+            mode_report.transaction_id.id = 0x1f;
+            
+            razer_send_payload(usb_dev, &mode_report);
+            
+            struct razer_rgb *rgb = (struct razer_rgb*)&buf[0];
+            report = get_razer_report(0x0f, 0x03, 0x0e);
 
-			report.arguments[0] = 0x00; // Variable storage
-			report.arguments[1] = 0x00; // LED ID
-			report.arguments[2] = 0x00; // Unknown
-			report.arguments[3] = 0x00; // Unknown
-			report.arguments[4] = 0x02; // Effect ID
-			report.arguments[5] = rgb->r; // RGB 3x
-			report.arguments[6] = rgb->g;
-			report.arguments[7] = rgb->b;
-			report.arguments[8] = rgb->r;
-			report.arguments[9] = rgb->g;
-			report.arguments[10] = rgb->b;
-			report.arguments[11] = rgb->r;
-			report.arguments[12] = rgb->g;
-			report.arguments[13] = rgb->b;
+            report.arguments[0] = 0x00; // Variable storage
+            report.arguments[1] = 0x00; // LED ID
+            report.arguments[2] = 0x00; // Unknown
+            report.arguments[3] = 0x00; // Unknown
+            report.arguments[4] = 0x02; // Effect ID
+            report.arguments[5] = rgb->r; // RGB 3x
+            report.arguments[6] = rgb->g;
+            report.arguments[7] = rgb->b;
+            report.arguments[8] = rgb->r;
+            report.arguments[9] = rgb->g;
+            report.arguments[10] = rgb->b;
+            report.arguments[11] = rgb->r;
+            report.arguments[12] = rgb->g;
+            report.arguments[13] = rgb->b;
             report.transaction_id.id = 0x1f;
             break;
 
