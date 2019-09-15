@@ -581,13 +581,13 @@ class RazerNagaTrinity(__RazerDeviceSpecialBrightnessSuspend):
     METHODS = ['get_device_type_mouse', 'get_dpi_xy', 'set_dpi_xy', 'get_poll_rate', 'set_poll_rate',
                'get_brightness', 'set_brightness', 'set_static_effect', 'max_dpi']
 
-    DEVICE_IMAGE = "https://assets.razerzone.com/eeimages/support/products/636/636_naga_chroma.png"
+    DEVICE_IMAGE = "https://assets.razerzone.com/eeimages/support/products/1251/1251_razer_naga_trinity.png"
 
     # Deprecated - RAZER_URLS be removed in future.
     RAZER_URLS = {
-        "top_img": "https://assets.razerzone.com/eeimages/support/products/636/636_naga_chroma.png",
-        "side_img": "https://assets2.razerzone.com/images/razer-naga-chroma/28b8a7b0bf18c4bb0ffe6fe22d070dba-razer-naga-chroma-gallery-02.jpg",
-        "perspective_img": "https://assets2.razerzone.com/images/razer-naga-chroma/15fc24f88b577a6d080ed9e0e6a1b219-razer-naga-chroma-gallery-03.jpg"
+        "top_img": "https://assets.razerzone.com/eeimages/support/products/1251/1251_razer_naga_trinity.png",
+        "side_img": None,
+        "perspective_img": None
     }
 
     DPI_MAX = 16000
